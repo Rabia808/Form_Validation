@@ -8,6 +8,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInputs();
+  splitDomain();
 });
 
 function checkInputs() {
@@ -79,4 +80,15 @@ function isStrongPassword(password) {
   ) {
     return true;
   }
+}
+
+function splitDomain() {
+  var my_email = email.value.trim();
+  console.log(`Email : ${my_email}`);
+  var ind = my_email.indexOf("@");
+  var my_slice = my_email.slice(0, ind);
+  var my_slice2 = my_email.slice(ind + 1, my_email.length);
+  console.log(`Username : ${my_slice}`);
+  console.log(`Domain : ${my_slice2}`);
+  alert(`Username : ${my_slice}     Domain : ${my_slice2}`);
 }
